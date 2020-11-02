@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {UserDetails} from '../../app/Util/UserDetails'
+import { UserDetails } from '../../app/Util/UserDetails'
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +12,11 @@ export class CommonService {
   getAllDetails = 'http://localhost:8081/api/plan/getAllDetails';
   saveDetaislsurl = 'http://localhost:8081/api/plan/saveDetails';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
   }
 
   login(loginDetails): Observable<any> {
-    return new Observable (observer => {
+    return new Observable(observer => {
       this.http.post(this.loginUrl, loginDetails).subscribe(response => {
         observer.next(response);
       });
@@ -24,7 +24,7 @@ export class CommonService {
   }
 
   getAll(): Observable<any> {
-    return new Observable( observer => {
+    return new Observable(observer => {
       this.http.get(this.getAllDetails).subscribe(response => {
         observer.next(response);
       });
@@ -33,9 +33,9 @@ export class CommonService {
 
   saveDetails(saveDetails): Observable<any> {
     return new Observable(observer => {
-this.http.post(this.saveDetaislsurl, saveDetails).subscribe(response => {
-  observer.next(response);
-});
+      this.http.post(this.saveDetaislsurl, saveDetails).subscribe(response => {
+        observer.next(response);
+      });
     });
   }
 }

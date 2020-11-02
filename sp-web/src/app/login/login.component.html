@@ -1,13 +1,14 @@
 <div *ngIf="loginstatus === true">
-    <input type="text" name="userName" [(ngModel)]="login.userName"/> {{login.userName}}
-    <input type ="password" name="password" [(ngModel)]= "login.password" />
-    <button  name="login" (click)="loginN()">Login</button>
+  <input type="text" name="userName" [(ngModel)]="login.userName" />
+  <input type="password" name="password" [(ngModel)]="login.password" />
+  <button name="login" (click)="loginN()">Login</button>
 </div>
-<div *ngIf="loginstatus == false"> 
-      <select *ngFor="let x of allDetails" name="cars" id="cars" [(ngModel)]="x.dropDownValue" (change)="changed($event.target.value)"[disabled]="sessionDetails.userId!== x.userId">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option> 
-        <option value="audi">Audi</option>
-      </select>
+<div *ngIf="loginstatus == false">
+  <select *ngFor="let allDetails of allDetails" name="cars" id="cars" [(ngModel)]="x.dropDownValue"
+    (change)="changed($event.target.value)" [disabled]="sessionDetails.userId!== allDetails.userId">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
 </div>

@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> login(String userName, String password) {
-		System.out.println(password);
 		if (userName != null && password != null) {
 		return userRepository.login(userName, password);
 		} else {
